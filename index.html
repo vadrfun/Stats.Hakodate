@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/globals.css">
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="./js/dexie.min.js"></script>
+    <title>Stats Hakodate 校正作業UI</title>
+</head>
+<body onload="Init()">
+    <div class="container">
+        <div class="main">
+            <div class="display">
+
+                <div class="buttons">  
+                    <input type="button" id ="pdf" value="目次PDF" onclick="window.open('pdf_view.html',width=50, height=300)">
+                    <!-- <button id="csv_download" onclick="onCSVDownload()">Download</button> -->
+                </div>
+
+                <div class="labellabel">
+                <div class="label">  
+                    <span id="label-img">　　Image</span>
+                </div>
+
+                <div class="label2">
+                    <button id = "plus_size">+</button>
+                    <button id = "minus_size">-</button>
+                </div>
+
+                <div class="label3">
+                    <span id="label-csv">CSV</span>
+                    <div id="status">
+                        <button id="not_yet">×</button>
+                        <button id="midway">△</button>
+                        <button id="done">✔</button>
+                    </div>
+                    <button id="csv_download" onclick="onCSVDownload()">Download</button>
+                </div>
+
+            </div>
+
+            <div class="img-csv">
+                <div id="img">
+                    <div class ="cross-pointer-img" id ="iLud" style="overflow: hidden;"></div>
+                    <div class ="cross-pointer-img" id ="iLlr" style="overflow: hidden;"></div>
+                </div>
+                <div id="csv">
+                    <div class ="cross-pointer-csv" id ="iLud2" style="overflow: hidden;"></div>
+                    <div class ="cross-pointer-csv" id ="iLlr2" style="overflow: hidden;"></div>
+                    <table class="tableArea" id="table_list"></table>
+                </div>
+            </div>
+            </div>
+
+            <div class="input">
+                <div id = "edit_cell">
+                    <div id="cell">
+                        <p>  セルの位置:</p>
+                        <div id ="clickKekka"></div>
+                    </div>
+                    
+                    <div id="cell_atai">
+                        <p>現状値:</p>
+                        <div id ="clickKekka2"></div>
+                    </div>
+
+                    <div id="edit">
+                        <p>訂正値:</p>
+                        <input type="text" id ="edit_content">
+                    </div>
+
+                    <div id ="mark_area">
+                        <textarea id="remarks" placeholder="備考欄"></textarea>
+                    </div>
+                </div>
+                
+                <div id = "choice_pattern">
+                    <div id ="add_pattern">
+                        <input type="text" id="new_pattern" placeholder="New Pattern">
+                        <button id="entry_pattern">add</button>
+                        <button id="delete_pattern">del</button>
+                    </div>
+
+                    <select id="error_pattern" size="100">
+                        <option>A: 誤字</option>
+                        <option>B: セルの下線がある</option>
+                        <option>C: セルが区切られていない</option>
+        
+                    </select>
+                </div>
+
+                <div id = "submit_button_group">
+                    <button id="csv_entry">登録</button>
+                   
+                </div>
+            </div>
+        </div>
+
+
+        <div class="sub">
+            <select id="box" name="example" size="5">
+                <option>Ⅰ. 行政 - 気象</option>
+                <option>Ⅰ. 行政 - 土地</option>
+                <option>Ⅰ. 行政 - 人口</option>
+                <option>Ⅰ. 行政 - 財政</option>
+                <option>Ⅱ. 産業・経済 - 農業</option>
+                <option>Ⅱ. 産業・経済 - 漁業</option>
+                <option>Ⅱ. 産業・経済 - 露領漁業</option>
+                <option>Ⅱ. 産業・経済 - 工業</option>
+                <option>Ⅱ. 産業・経済 - 事業所</option>
+                <option>Ⅱ. 産業・経済 - 商業・金融</option>
+                <option>Ⅱ. 産業・経済 - 運輸・通信</option>
+                <option>Ⅱ. 産業・経済 - 内国貿易</option>
+                <option>Ⅱ. 産業・経済 - 外国貿易</option>
+                <option>Ⅱ. 産業・経済 - 物価・賃金</option>
+                <option>Ⅲ. 社会・教育 - 司法・警察</option>
+                <option>Ⅲ. 社会・教育 - 風俗</option>
+                <option>Ⅲ. 社会・教育 - 消防</option>
+                <option>Ⅲ. 社会・教育 - 衛星</option>
+                <option>Ⅲ. 社会・教育 - 水道・電気・ガス</option>
+                <option>Ⅲ. 社会・教育 - 教育</option>
+                <option>Ⅲ. 社会・教育 - 兵事</option>
+            </select>
+            <div id="imgs"></div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="./js/display.js"></script>
+    <script type="text/javascript" src="./js/edet2js.js"></script>
+    <script type="text/javascript" src="./js/pattern.js"></script>
+    <script type="text/javascript" src="./js/onload.js"></script>
+    <script type="text/javascript" src="./js/status.js"></script>
+</body>
+</html>
