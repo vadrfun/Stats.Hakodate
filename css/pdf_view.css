@@ -1,0 +1,18 @@
+html, body {
+    overflow: hidden;
+}
+
+.container {
+    width: 100vw;   
+    height: 100vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.view{
+    background-color:rgb(241, 187, 187);
+    /*text-align:center;*/
+    width: 65vw;
+    height: 90vh;
+}
